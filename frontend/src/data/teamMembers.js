@@ -14,7 +14,7 @@ import beyzaKomis from '../assets/team/beyza-komis.jpg';
 
 export const teamMembers = [
   { name: 'Nursima Örgen', role: 'Başkan', description: 'Topluluğun genel yönetiminden ve stratejik hedeflerinden sorumludur.', photo: nursimaOrgen, linkedin: 'https://www.linkedin.com/in/nursima-orgen/' },
-  { name: 'Zehra Nur Saraç', role: 'Başkan Yardımcısı', description: 'Başkana bağlı olarak topluluk operasyonlarının koordinasyonunu destekler.', photo: zehraNurSarac, linkedin: 'https://www.linkedin.com/in/zehranursarac' },
+  { name: 'Zehra Nur Saraç', role: 'Başkan Yardımcısı', description: 'Başkana bağlı olarak topluluk operasyonlarının koordinasyonunu destekler.', photo: zehraNurSarac, linkedin: '' },
   { name: 'Gökay Yılmaz', role: 'Yarış Koordinatörü', description: 'Katılım sağlanan yazılım yarışmalarının takibini ve organizasyonunu yürütür.', photo: gokayYilmaz, linkedin: '' },
   { name: 'Ela Tunç', role: 'Yarış Koordinatörü Yardımcısı', description: 'Yarışma süreçlerinde takımlara destek olur ve organizasyona yardımcı olur.', photo: elaTunc, linkedin: 'https://linkedin.com/in/elatunc' },
   { name: 'Betül Çelik', role: 'Proje / Teknik Koordinatörü', description: 'Proje ekiplerine teknik yön verir ve web sitesi gibi topluluk projelerini yönetir.', photo: betulCelik, linkedin: '' },

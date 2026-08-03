@@ -20,10 +20,10 @@ function Footer() {
       <div className="footer-contact">
         <strong>Bize Ulaşın</strong>
         <div className="social-links">
-          <a href="https://www.instagram.com/sautechdev?igsh=MXFrY29pMWp0Z2dndg==" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <a href="https://instagram.com/sau_techdev" target="_blank" rel="noreferrer" aria-label="Instagram">
             <FaInstagram size={24} />
           </a>
-          <a href="https://www.linkedin.com/company/techdevsau/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a href="https://linkedin.com/company/sau-techdev" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <FaLinkedin size={24} />
           </a>
         </div>
