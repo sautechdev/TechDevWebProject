@@ -14,12 +14,15 @@ public class MailServiceImpl implements MailService {
 
     private final JavaMailSender mailSender;
 
+    @org.springframework.beans.factory.annotation.Value("${app.mail.from:noreply@techdev.com}")
+    private String fromAddress;
+
     @Override
     public void send(String to, String subject, String body) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(to);
-            message.setFrom("noreply@techdev.com");
+            message.setFrom(fromAddress);
             message.setSubject(subject);
             message.setText(body);
 
