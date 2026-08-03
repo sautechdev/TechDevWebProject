@@ -1,0 +1,94 @@
+.verify-card {
+  max-width: 620px;
+}
+
+.verify-card .page-heading h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.verify-email-summary {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+}
+
+.verify-email-summary span,
+.verification-help,
+.resend-verification,
+.mailhog-note {
+  color: var(--text-muted);
+}
+
+.verify-email-summary strong {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.verification-code-input {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  letter-spacing: 0.55em;
+  text-align: center;
+  width: 100%;
+}
+
+.verification-code-input:focus-visible {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-2) 28%, transparent);
+  outline: 0;
+}
+
+.verification-help {
+  margin-top: -10px;
+}
+
+.resend-verification {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  text-align: center;
+}
+
+.resend-verification--highlighted {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.resend-verification .text-button {
+  font-weight: 900;
+}
+
+.resend-verification .text-button:disabled {
+  color: var(--text-muted);
+}
+
+.mailhog-note {
+  border-top: 1px solid var(--border);
+  font-size: 0.84rem;
+  margin: 0;
+  padding-top: 18px;
+  text-align: center;
+}
+
+.mailhog-note a {
+  color: var(--accent-2);
+}
+
+@media (max-width: 520px) {
+  .verification-code-input {
+    letter-spacing: 0.35em;
+  }
+
+  .resend-verification {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

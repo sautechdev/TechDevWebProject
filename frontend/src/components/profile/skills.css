@@ -1,0 +1,22 @@
+.skills-section { display: grid; gap: 22px; }
+.skills-section > div:first-child > p { margin-bottom: 0; }
+.skill-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-badge { align-items: center; background: var(--chip); border: 1px solid var(--border); border-radius: 999px; color: var(--chip-text); display: inline-flex; font-weight: 800; gap: 8px; max-width: 100%; padding: 7px 9px 7px 13px; }
+.skill-badge > span { overflow-wrap: anywhere; }
+.skill-badge button { align-items: center; background: transparent; border: 0; border-radius: 999px; color: currentColor; display: inline-flex; font-size: 1.2rem; height: 28px; justify-content: center; padding: 0; width: 28px; }
+.skill-badge button:hover, .skill-badge button:focus-visible { background: color-mix(in srgb, var(--accent) 20%, transparent); outline: 2px solid var(--accent-2); outline-offset: 1px; }
+.skills-empty { background: var(--surface-soft); border: 1px dashed var(--border); border-radius: 14px; color: var(--text-muted); margin: 0; padding: 16px; }
+.skill-selector { display: grid; gap: 12px; }
+.skill-selector__entry { display: grid; gap: 10px; grid-template-columns: 1fr auto; }
+.skill-selector__entry input { min-width: 0; }
+.skill-selector__entry button { min-width: 84px; }
+.skill-suggestions { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-suggestions button { background: var(--surface-soft); color: var(--text); font-size: .85rem; min-height: 36px; padding: 0 12px; }
+.skill-message { border: 1px solid var(--border); border-radius: 12px; margin: 0; padding: 12px 14px; }
+.skill-message--error { background: rgba(169, 38, 61, .14); color: #ffbec8; }
+.skill-message--success { background: rgba(21, 199, 132, .12); color: #8ff0c6; }
+.applicant-skills { display: grid; gap: 10px; margin-top: 16px; }
+.applicant-skills > strong { color: var(--text); font-size: .9rem; }
+:root[data-theme='light'] .skill-message--error { color: #8d1f33; }
+:root[data-theme='light'] .skill-message--success { color: #087247; }
+@media (max-width: 560px) { .skill-selector__entry { grid-template-columns: 1fr; } }

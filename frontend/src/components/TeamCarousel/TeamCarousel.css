@@ -1,0 +1,158 @@
+.team-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.team-carousel__track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 4px 24px;
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.team-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.team-carousel__card {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 24px 18px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-carousel__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.team-carousel__card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.team-carousel__card strong {
+  color: var(--accent-2);
+  font-size: 0.82rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.team-carousel__card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.team-carousel__linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-top: 12px;
+  border-radius: 50%;
+  color: var(--accent-2);
+  background: var(--chip);
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.team-carousel__linkedin:hover {
+  background: var(--accent-2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.team-carousel__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 14px;
+  display: block;
+  border: 2px solid var(--border);
+}
+
+.team-carousel__arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.team-carousel__arrow:hover:not(:disabled) {
+  background: var(--chip);
+  color: var(--accent-2);
+  transform: scale(1.05);
+}
+
+.team-carousel__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.team-carousel__dots {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.team-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.team-carousel__dot--active {
+  background: var(--accent-2);
+  transform: scale(1.3);
+}
+
+@media (max-width: 640px) {
+  .team-carousel__arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .team-carousel__card {
+    width: 180px;
+  }
+}

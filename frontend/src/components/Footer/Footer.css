@@ -1,0 +1,38 @@
+.site-footer {
+  /* Temadan gelen değişkenleri kullanıyoruz */
+  background-color: var(--surface); /* Arka plan temaya göre değişir */
+  color: var(--text);               /* Yazı rengi temaya göre değişir */
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border); /* Kenarlık da temaya uyumlu */
+  margin-top: auto;
+}
+
+.footer-nav a {
+  color: var(--text-muted); /* Pasif link rengi */
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: var(--text); /* Hover'da belirginleşir */
+}
+
+.social-links {
+  display: flex;
+  gap: 20px; /* İkonlar arası boşluk */
+  margin-top: 12px;
+}
+
+.social-links a {
+  color: var(--text);
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* İkonların üzerine gelince renk değiştirmesi */
+.social-links a:hover {
+  color: var(--accent); /* Tema vurgu rengine döner */
+  transform: translateY(-3px); /* Hafif yukarı zıplar */
+}
