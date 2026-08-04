@@ -18,22 +18,18 @@ function ArchiveViewer({ record }) {
           <h2>{record.title}</h2>
           <time dateTime={record.date}>{formattedDate}</time>
         </div>
-        <div className="archive-viewer__seal" aria-label={record.meta.collection}>
+        {record.meta?.collection && <div className="archive-viewer__seal" aria-label={record.meta.collection}>
           <span>ARŞİV</span>
           <strong>{record.meta.collection.split(' ')[1]}</strong>
-        </div>
+        </div>}
       </header>
 
-      <p className="archive-viewer__summary">{record.summary}</p>
+      {record.summary && <p className="archive-viewer__summary">{record.summary}</p>}
 
-      <dl className="archive-meta">
-        <div><dt>Konum</dt><dd>{record.meta.location}</dd></div>
-        <div><dt>Katılım</dt><dd>{record.meta.participants}</dd></div>
-        <div><dt>Koleksiyon</dt><dd>{record.meta.collection}</dd></div>
-      </dl>
-
-      <ArchivePhotoGrid photos={record.photos} />
-      <ArchiveNotes notes={record.notes} />
+      {record.photos?.length > 0
+        ? <ArchivePhotoGrid photos={record.photos} />
+        : <p className="state-card">Bu etkinlik için henüz fotoğraf yüklenmedi.</p>}
+      {record.notes?.length > 0 && <ArchiveNotes notes={record.notes} />}
     </article>
   );
 }

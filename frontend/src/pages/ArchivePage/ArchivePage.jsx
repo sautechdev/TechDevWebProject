@@ -1,8 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ArchiveCabinet from '../../components/archive/ArchiveCabinet.jsx';
-import { getArchiveRecords } from '../../services/archiveService.js';
+import { archiveApi } from '../../services/archiveApi.js';
+import { asList } from '../../services/apiClient.js';
 import './ArchivePage.css';
+
+// Backend'ten gelen ArchiveEventResponse'u, arşiv dolabı bileşenlerinin
+// beklediği görüntüleme şekline dönüştürür.
+function mapArchiveEvent(event, index) {
+  const items = event.items || [];
+  return {
+    id: String(event.id),
+    title: event.title,
+    date: event.eventDate,
+    summary: event.description || '',
+    meta: { collection: `Dosya ${String(index + 1).padStart(2, '0')}` },
+    photos: items
+      .filter((item) => item.type === 'PHOTO')
+      .map((item) => ({ id: item.id, url: item.fileUrl, caption: item.caption, alt: item.caption || event.title })),
+    notes: items.filter((item) => item.type === 'NOTE').map((item) => item.caption).filter(Boolean),
+  };
+}
 
 function ArchivePage({ initialArchiveId }) {
   const [records, setRecords] = useState([]);
@@ -11,9 +29,11 @@ function ArchivePage({ initialArchiveId }) {
 
   useEffect(() => {
     let active = true;
-    getArchiveRecords()
+    archiveApi.list({ size: 100 })
       .then((data) => {
-        if (active) setRecords(data);
+        if (!active) return;
+        const events = asList(data);
+        setRecords(events.map(mapArchiveEvent));
       })
       .catch(() => {
         if (active) setError('Arşiv kayıtları şu anda görüntülenemiyor. Lütfen yeniden deneyin.');

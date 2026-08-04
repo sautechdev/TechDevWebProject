@@ -470,6 +470,31 @@
 .archive-photo--violet { --photo-color: #7357d6; }
 .archive-photo--navy { --photo-color: #0b3c73; }
 
+.archive-photo--real {
+  background: var(--surface);
+  border-color: var(--border);
+  margin: 0;
+  padding: 0;
+}
+
+.archive-photo--real img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.archive-photo--real figcaption {
+  background: linear-gradient(to top, rgba(0, 0, 0, .72), transparent);
+  bottom: 0;
+  color: #fff;
+  font-size: .78rem;
+  left: 0;
+  padding: 20px 12px 10px;
+  position: absolute;
+  right: 0;
+}
+
 .archive-photo::after {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .15), transparent);
   content: '';

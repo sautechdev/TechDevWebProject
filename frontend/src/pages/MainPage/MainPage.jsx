@@ -1,4 +1,15 @@
 import './MainPage.css';
+import ekipRobot1 from '../../assets/events/ekip-robot-1.jpg';
+import robotDemo1 from '../../assets/events/robot-demo-1.jpg';
+import elektronikMontaj from '../../assets/events/elektronik-montaj.jpg';
+import standGenel from '../../assets/events/stant-genel.jpg';
+
+const galleryPhotos = [
+  { src: ekipRobot1, alt: 'TechDev ekibi SAÜ Mezunlar Etkinliği standında robot projesiyle' },
+  { src: robotDemo1, alt: 'Robot yarış pisti demosu izleyicilerle birlikte' },
+  { src: elektronikMontaj, alt: 'Standda elektronik devre ve robot montajı yapan üye' },
+  { src: standGenel, alt: 'SAÜ Mezunlar Etkinliği\'nde TechDev standının genel görünümü' },
+];
 
 const steps = [
   {
@@ -91,6 +102,20 @@ function MainPage() {
               <h3>{step.title}</h3>
               <p>{step.text}</p>
             </article>
+          ))}
+        </div>
+      </div>
+
+      <div className="gallery-section">
+        <div className="gallery-section__heading">
+          <p className="page-heading__eyebrow">Etkinliklerimizden</p>
+          <h2>Standımızda, sahada, ekip hâlinde.</h2>
+          <p>SAÜ Mezunlar Etkinliği'nde robot projelerimizi tanıttık, ziyaretçilerle tanıştık. Daha fazla an için Dijital Arşiv'e göz atın.</p>
+          <a href="/archive">Tüm anılara göz at →</a>
+        </div>
+        <div className="gallery-section__grid">
+          {galleryPhotos.map((photo) => (
+            <img key={photo.src} src={photo.src} alt={photo.alt} loading="lazy" />
           ))}
         </div>
       </div>

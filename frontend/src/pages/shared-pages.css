@@ -65,6 +65,11 @@
 .inline-actions button { min-height: 38px; padding: 0 14px; }
 .filter-control { max-width: 360px; }
 .table-wrap { border: 1px solid var(--border); border-radius: 16px; overflow-x: auto; }
+
+.archive-admin-panel { border-top: 1px solid var(--border); display: grid; gap: 12px; margin-top: 14px; padding-top: 14px; }
+.archive-admin-thumbs { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+.archive-admin-thumb { display: grid; gap: 6px; }
+.archive-admin-thumb img { aspect-ratio: 1; border-radius: 10px; object-fit: cover; width: 100%; }
 table { background: var(--surface); border-collapse: collapse; min-width: 720px; width: 100%; }
 th, td { border-bottom: 1px solid var(--border); padding: 14px; text-align: left; }
 th { color: var(--text-muted); }

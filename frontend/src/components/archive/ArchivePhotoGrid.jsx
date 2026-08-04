@@ -1,17 +1,11 @@
 function ArchivePhotoGrid({ photos }) {
   return (
     <div className="archive-photo-grid" aria-label="Etkinlik fotoğrafları">
-      {photos.map((photo, index) => (
-        <div
-          key={photo.id}
-          className={`archive-photo archive-photo--${photo.tone}`}
-          role="img"
-          aria-label={photo.alt}
-        >
-          <span className="archive-photo__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-          <span className="archive-photo__scene" aria-hidden="true"><i /><i /><i /></span>
-          <strong>{photo.label}</strong>
-        </div>
+      {photos.map((photo) => (
+        <figure key={photo.id} className="archive-photo archive-photo--real">
+          <img src={photo.url} alt={photo.alt} loading="lazy" />
+          {photo.caption && <figcaption>{photo.caption}</figcaption>}
+        </figure>
       ))}
     </div>
   );

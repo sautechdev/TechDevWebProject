@@ -27,6 +27,7 @@ const AdminProjects = lazy(() => import('../pages/AdminPage/AdminPage.jsx').then
 const PendingProjects = lazy(() => import('../pages/AdminPage/AdminPage.jsx').then((m) => ({ default: m.PendingProjects })));
 const AdminUsers = lazy(() => import('../pages/AdminPage/AdminPage.jsx').then((m) => ({ default: m.AdminUsers })));
 const AdminSkills = lazy(() => import('../pages/AdminPage/AdminPage.jsx').then((m) => ({ default: m.AdminSkills })));
+const AdminArchive = lazy(() => import('../pages/AdminPage/AdminPage.jsx').then((m) => ({ default: m.AdminArchive })));
 
 function PageFallback() {
   return <div className="page-loading" role="status" aria-live="polite">Yükleniyor…</div>;
@@ -61,6 +62,7 @@ function AppRoutes() {
               <Route path="/admin/projects/pending" element={<PendingProjects />} />
               <Route path="/admin/users" element={<AdminUsers />} />
               <Route path="/admin/skills" element={<AdminSkills />} />
+              <Route path="/admin/archive" element={<AdminArchive />} />
             </Route>
           </Route>
         </Route>
