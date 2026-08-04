@@ -30,10 +30,20 @@ function ArchivePage({ initialArchiveId }) {
   useEffect(() => {
     let active = true;
     archiveApi.list({ size: 100 })
-      .then((data) => {
+      .then(async (data) => {
         if (!active) return;
         const events = asList(data);
-        setRecords(events.map(mapArchiveEvent));
+        // Liste endpoint'i fotoğrafları içermiyor (performans için), her etkinlik
+        // için ayrıca fotoğrafları çekip birleştiriyoruz.
+        const eventsWithItems = await Promise.all(events.map(async (event) => {
+          try {
+            const items = await archiveApi.getItems(event.id);
+            return { ...event, items: asList(items) };
+          } catch {
+            return { ...event, items: [] };
+          }
+        }));
+        if (active) setRecords(eventsWithItems.map(mapArchiveEvent));
       })
       .catch(() => {
         if (active) setError('Arşiv kayıtları şu anda görüntülenemiyor. Lütfen yeniden deneyin.');

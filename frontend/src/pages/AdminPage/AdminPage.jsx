@@ -62,7 +62,17 @@ export function AdminArchive() {
     setLoading(true);
     try {
       const result = await archiveApi.list({ size: 100 });
-      setEvents(asList(result));
+      const list = asList(result);
+      // Liste endpoint'i fotoğrafları içermiyor, her etkinlik için ayrıca çekiyoruz.
+      const withItems = await Promise.all(list.map(async (archiveEvent) => {
+        try {
+          const items = await archiveApi.getItems(archiveEvent.id);
+          return { ...archiveEvent, items: asList(items) };
+        } catch {
+          return { ...archiveEvent, items: [] };
+        }
+      }));
+      setEvents(withItems);
     } catch (e) {
       setFeedback({ type: 'error', text: e.message });
     } finally {
