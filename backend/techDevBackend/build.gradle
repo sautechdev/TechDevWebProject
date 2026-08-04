@@ -22,6 +22,7 @@ repositories {
 dependencies {
 	// Web
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.cloudinary:cloudinary-http44:1.39.0'
 
 	// Security
 	implementation 'org.springframework.boot:spring-boot-starter-security'

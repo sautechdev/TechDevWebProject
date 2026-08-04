@@ -18,7 +18,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/archive-events")
 @RequiredArgsConstructor
-@PreAuthorize("hasRole('ADMIN')")
 public class ArchiveEventController {
 
     private final ArchiveEventService service;

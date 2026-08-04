@@ -12,10 +12,15 @@ public class ArchiveItemMapper {
     private String baseUrl;
 
     public ArchiveItemResponse toResponse(ArchiveItem entity) {
+        String path = entity.getFilePath();
+        // Cloudinary'ye tasindiktan sonra filePath zaten tam (https://) bir URL.
+        // Eski/yerel kayitlarla geriye donuk uyumluluk icin sadece goreceli yollarin
+        // basina base-url ekleniyor.
+        String fileUrl = (path != null && path.startsWith("http")) ? path : baseUrl + path;
         return ArchiveItemResponse.builder()
                 .id(entity.getId())
                 .fileName(entity.getFileName())
-                .fileUrl(baseUrl + entity.getFilePath())
+                .fileUrl(fileUrl)
                 .type(entity.getType())
                 .fileSize(entity.getFileSize())
                 .caption(entity.getCaption())
