@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaBell } from 'react-icons/fa';
 import { useNotifications } from '../../contexts/NotificationContext.jsx';
 import { getNotificationTarget } from '../../services/notificationApi.js';
 
@@ -47,7 +48,7 @@ function NotificationBell() {
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
-        <span aria-hidden="true">●</span>
+        <span aria-hidden="true"><FaBell /></span>
         {unreadCount > 0 && <strong>{unreadCount > 99 ? '99+' : unreadCount}</strong>}
       </button>
       {open && (
