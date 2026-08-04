@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { adminApi } from '../../services/adminApi.js';
-import { archiveApi } from '../../services/archiveApi.js';
+import { archiveApi, optimizeCloudinaryUrl } from '../../services/archiveApi.js';
 import { asList, API_BASE_URL } from '../../services/apiClient.js';
 import '../shared-pages.css';
 
@@ -171,7 +171,7 @@ export function AdminArchive() {
           {isOpen && <div className="archive-admin-panel">
             {photos.length > 0 && <div className="archive-admin-thumbs">
               {photos.map((item) => <div className="archive-admin-thumb" key={item.id}>
-                <img src={item.fileUrl?.startsWith('http') ? item.fileUrl : `${API_BASE_URL}${item.fileUrl}`} alt={item.caption || archiveEvent.title} />
+                <img src={optimizeCloudinaryUrl(item.fileUrl?.startsWith('http') ? item.fileUrl : `${API_BASE_URL}${item.fileUrl}`, 200)} alt={item.caption || archiveEvent.title} />
                 <button type="button" className="button-danger" onClick={() => removePhoto(archiveEvent, item)}>Sil</button>
               </div>)}
             </div>}

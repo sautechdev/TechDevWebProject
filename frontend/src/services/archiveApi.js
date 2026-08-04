@@ -8,6 +8,14 @@ function queryString(params) {
   return query.toString();
 }
 
+// Cloudinary URL'lerine otomatik format (WebP vb.) ve kalite optimizasyonu ekler.
+// Cloudinary olmayan (veya beklenmeyen) URL'lerde dokunmadan aynen döner.
+export function optimizeCloudinaryUrl(url, width) {
+  if (!url || !url.includes('res.cloudinary.com') || !url.includes('/upload/')) return url;
+  const transform = width ? `f_auto,q_auto,w_${width}` : 'f_auto,q_auto';
+  return url.replace('/upload/', `/upload/${transform}/`);
+}
+
 export const archiveApi = {
   list: (params = {}) => apiRequest(`/api/archive-events?${queryString(params)}`),
   getById: (id) => apiRequest(`/api/archive-events/${id}`),

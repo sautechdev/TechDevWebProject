@@ -182,8 +182,8 @@
   .navbar {
     align-items: stretch;
     flex-direction: column;
-    gap: 10px;
-    padding: 16px 20px;
+    gap: 8px;
+    padding: 10px 16px;
   }
 
   .navbar__top {
@@ -208,6 +208,7 @@
   }
 
   .navbar__brand img {
-    width: 112px;
+    height: auto;
+    width: 92px;
   }
 }
