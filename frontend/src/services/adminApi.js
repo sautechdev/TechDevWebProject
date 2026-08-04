@@ -12,4 +12,7 @@ export const adminApi = {
   rejectProject: (id) => apiRequest(`/api/admin/projects/${id}/reject`, { method: 'PUT' }),
   updateProject: (id, details) => apiRequest(`/api/admin/projects/${id}`, { method: 'PUT', body: JSON.stringify(details) }),
   deleteProject: (id) => apiRequest(`/api/admin/projects/${id}`, { method: 'DELETE' }),
+  getSkills: () => apiRequest('/api/skills'),
+  createSkill: (name) => apiRequest('/api/admin/skills', { method: 'POST', body: JSON.stringify({ name }) }),
+  deleteSkill: (id) => apiRequest(`/api/admin/skills/${id}`, { method: 'DELETE' }),
 };
